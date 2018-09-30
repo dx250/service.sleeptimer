@@ -129,3 +129,12 @@ msgid "Always"
 msgctxt "#30028"
 msgid "Specific Time"
 ""
+
+msgctxt "#30029"
+msgid "Run custom Kodi action after stopping"
+""
+
+msgctxt "#30030"
+msgid "Action to run"
+""
+

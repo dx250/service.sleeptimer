@@ -45,7 +45,8 @@ audio_enable = str(selfAddon.getSetting('audio_enable'))
 video_enable = str(selfAddon.getSetting('video_enable'))
 max_time_audio = int(selfAddon.getSetting('max_time_audio'))
 max_time_video = int(selfAddon.getSetting('max_time_video'))
-enable_screensaver = selfAddon.getSetting('enable_screensaver')
+enable_action = selfAddon.getSetting('enable_action')
+action = selfAddon.getSetting('action')
 custom_cmd = selfAddon.getSetting('custom_cmd')
 cmd = selfAddon.getSetting('cmd')
 
@@ -281,11 +282,23 @@ class service:
                                     # we can move upwards fast, because there is nothing playing
                                     xbmc.executebuiltin('SetVolume(%d,showVolumeBar)' % (curVol))
 
-                            if enable_screensaver == 'true':
-                                if debug == 'true':
-                                    _log ( "DEBUG: Activating screensaver" )
-                                xbmc.executebuiltin('ActivateScreensaver')   
-                            
+                            if enable_action == 'true':
+                                _log ( "Action enabled, action value: " + action )
+                                builtin_action = {
+                                    '0': "System.LogOff",
+                                    '1': "Quit",
+                                    '2': "Reboot",
+                                    '3': "Hibernate",
+                                    '4': "Suspend",
+                                    '5': "Powerdown",
+                                }
+                                action_to_run = builtin_action.get(action, "NOP")
+				_log ( "Kodi builtin action to run: (" + action + ") " + action_to_run )
+                                if action_to_run != "NOP":
+                                    xbmc.executebuiltin(action_to_run)
+                                else:
+                                    _log ( "Kodi action was called with unknown value: " + action )
+ 
                             #Run a custom cmd after playback is stopped
                             if custom_cmd == 'true':
                                 if debug == 'true':

@@ -128,3 +128,12 @@ msgstr "Sempre"
 msgctxt "#30028"
 msgid "Specific Time"
 msgstr "Tempo especifico"
+
+msgctxt "#30029"
+msgid "Run custom Kodi action after stopping"
+msgstr "Executar comando customizado do Kodi após a reprodução ser parada"
+
+msgctxt "#30030"
+msgid "Action to run"
+msgstr "Comando customizado do Kodi"
+

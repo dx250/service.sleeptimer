@@ -6,7 +6,8 @@
 		<setting id="audio_change" label="30004" type="bool" default="true" visible="true"/>
 		<setting id="audio_change_rate" label="30006" enable="eq(-1,true)" type="slider" default="500" range="50,50,3000" option="int"/>
 		<setting id="check_time_next" label="30007" type="slider" default="30" range="15,10,120" option="int"/>
-		<setting id="enable_screensaver" label="30008" type="bool" default="false" visible="true"/>
+		<setting id="enable_action" label="30029" type="bool" default="true" visible="true"/>
+		<setting id="action" label="30030" type="enum" default="0" enable="eq(-1,true)" lvalues="20126|13012|13013|13010|13011|13016" subsetting="true"/>
 	     <setting id="custom_cmd" label="30022" type="bool" default="false" visible="true"/>
 	     <setting id="cmd" type="text" label="30023" default="" visible="eq(-1,true)"/>
 	</category>
